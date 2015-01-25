@@ -11,5 +11,6 @@ gem 'mongoid'
 gem 'oj'
 
 group :development do
+  gem 'foreman'
   gem 'rerun'
 end
