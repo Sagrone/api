@@ -1,0 +1,18 @@
+development:
+  sessions:
+    default:
+      database: <%= ENV.fetch('MONGO_DATABASE') %>
+      hosts:
+        - <%= ENV.fetch('MONGO_HOST') %>:<%= ENV.fetch('MONGO_PORT') %>
+      options:
+  options:
+test:
+  sessions:
+    default:
+      database: <%= ENV.fetch('MONGO_DATABASE') %>_test
+      hosts:
+        - <%= ENV.fetch('MONGO_HOST') %>:<%= ENV.fetch('MONGO_PORT') %>
+      options:
+        read: primary
+        max_retries: 1
+        retry_interval: 0

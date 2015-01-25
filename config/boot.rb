@@ -6,5 +6,9 @@ Bundler.require(:default, ENV.fetch('RACK_ENV')) if defined? Bundler
 # Load .env variables
 Dotenv.load
 
+# Configure Mongoid
+database_config = File.expand_path('../../config/mongoid.yml', __FILE__)
+Mongoid.load!(database_config, ENV.fetch('RACK_ENV'))
+
 # Application setup
 require File.expand_path('../../app/api',  __FILE__)
