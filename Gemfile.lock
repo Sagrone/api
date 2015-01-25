@@ -36,6 +36,7 @@ GEM
     i18n (0.7.0)
     ice_nine (0.11.1)
     json (1.8.2)
+    kgio (2.9.3)
     minitest (5.5.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
@@ -46,10 +47,15 @@ GEM
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    raindrops (0.13.0)
     thread_safe (0.3.4)
     tilt (2.0.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unicorn (4.8.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     virtus (1.0.4)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -62,3 +68,4 @@ PLATFORMS
 DEPENDENCIES
   grape
   grape-rabl
+  unicorn
