@@ -16,6 +16,7 @@ GEM
       descendants_tracker (~> 0.0.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
+    dotenv (1.0.2)
     equalizer (0.0.9)
     grape (0.10.1)
       activesupport
@@ -66,6 +67,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   grape
   grape-rabl
   unicorn

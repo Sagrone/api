@@ -4,5 +4,6 @@ source 'https://rubygems.org'
 gem 'unicorn'
 
 # App
+gem 'dotenv'
 gem 'grape'
 gem 'grape-rabl'
