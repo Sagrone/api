@@ -6,6 +6,6 @@ class API < Grape::API
 
   desc 'Check API status'
   get '/status' do
-    'Status: OK'
+    {status: 'OK'}
   end
 end
