@@ -5,6 +5,8 @@ Bundler.require
 require 'airborne'
 require 'rspec'
 
+require_relative '../config/boot'
+
 Airborne.configure do |config|
   config.rack_app = API
 end
