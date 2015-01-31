@@ -14,3 +14,8 @@ gem 'oj'
 group :development do
   gem 'rerun'
 end
+
+group :test do
+  gem 'airborne'
+  gem 'rspec'
+end
