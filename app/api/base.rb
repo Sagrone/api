@@ -1,4 +1,5 @@
 require 'grape'
+require 'grape-entity'
 require 'api'
 require 'api/v1/base'
 
