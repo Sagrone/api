@@ -32,4 +32,8 @@ RSpec.configure do |config|
 
   config.full_backtrace = false
   config.order = :random
+
+  config.before :each do
+    Mongoid.purge!
+  end
 end
