@@ -1,8 +1,9 @@
 module API
   module V1
     class Events < Grape::API
-      namespace :events do
+      include API::V1::Defaults
 
+      namespace :events do
         get nil do
           { ok: true}
         end
