@@ -18,4 +18,5 @@ end
 group :test do
   gem 'airborne'
   gem 'rspec'
+  gem 'mongoid-rspec'
 end

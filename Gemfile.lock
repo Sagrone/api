@@ -67,6 +67,10 @@ GEM
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-rspec (2.1.0)
+      mongoid (~> 4.0.0)
+      rake
+      rspec (~> 3.1)
     moped (2.0.3)
       bson (~> 2.2)
       connection_pool (~> 2.0)
@@ -87,6 +91,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     raindrops (0.13.0)
+    rake (10.4.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -135,6 +140,7 @@ DEPENDENCIES
   grape
   grape-rabl
   mongoid
+  mongoid-rspec
   oj
   rerun
   rspec
