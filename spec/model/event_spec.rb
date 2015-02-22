@@ -14,5 +14,8 @@ RSpec.describe Models::Event, type: :model do
   describe 'has fields' do
     it { is_expected.to have_field(:title).of_type(String) }
     it { is_expected.to validate_presence_of(:title) }
+
+    it { is_expected.to have_field(:description).of_type(String) }
+    it { is_expected.to validate_presence_of(:description) }
   end
 end
