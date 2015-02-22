@@ -4,15 +4,19 @@ This is the API package for the Sagrone web application. It exposes a RESTful AP
 
 ## Development Bootstrap
 
-First setup your gem dependencies with:
+First setup your gem dependencies:
 
     bundle install
 
-To open a console run:
+To run tests:
+
+    rspec
+
+To open a console:
 
     rake console
 
-To start the API run:
+To start the API:
 
     foreman start
 
