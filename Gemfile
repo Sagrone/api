@@ -7,7 +7,6 @@ gem 'unicorn'
 gem 'dotenv'
 gem 'foreman'
 gem 'grape'
-gem 'grape-rabl'
 gem 'mongoid'
 gem 'oj'
 

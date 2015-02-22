@@ -47,11 +47,6 @@ GEM
       rack-accept
       rack-mount
       virtus (>= 1.0.0)
-    grape-rabl (0.3.0)
-      grape
-      i18n
-      rabl
-      tilt
     guard (2.12.3)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -107,8 +102,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rabl (0.11.5)
-      activesupport (>= 2.3.14)
     rack (1.6.0)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -143,7 +136,6 @@ GEM
     slop (3.6.0)
     thor (0.19.1)
     thread_safe (0.3.4)
-    tilt (2.0.1)
     timers (4.0.1)
       hitimes
     tzinfo (1.2.2)
@@ -166,7 +158,6 @@ DEPENDENCIES
   dotenv
   foreman
   grape
-  grape-rabl
   guard-rspec
   mongoid
   mongoid-rspec
