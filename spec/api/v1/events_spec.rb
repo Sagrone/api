@@ -72,7 +72,7 @@ RSpec.describe API::V1::Events do
       end
 
       it 'should say document not found' do
-        expect_json(error: 'Document not found')
+        expect_json(error_message: 'Document not found')
       end
     end
   end
