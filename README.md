@@ -1,5 +1,7 @@
 # Sagrone API
 
+[![Build Status](https://travis-ci.org/Sagrone/api.svg?branch=master)](https://travis-ci.org/Sagrone/api)
+
 This is the API package for the Sagrone web application. It exposes a RESTful API that can be consumed externally by other applications.
 
 ## Development Bootstrap
