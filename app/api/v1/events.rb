@@ -20,6 +20,18 @@ module API
           event = Models::Event.find(params[:id])
           present :event, event, with: API::Entities::Event
         end
+
+        desc 'Create a new event'
+        params do
+          requires :event, type: Hash do
+            requires :title, type: String
+            requires :description, type: String
+          end
+        end
+        post nil do
+          event = Models::Event.create!(declared(params)[:event])
+          present :event, event, with: API::Entities::Event
+        end
       end
     end
   end

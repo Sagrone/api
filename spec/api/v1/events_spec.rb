@@ -76,4 +76,52 @@ RSpec.describe API::V1::Events do
       end
     end
   end
+
+  describe 'POST /v1/events' do
+    describe 'when params present' do
+      before do
+        @event_attrs = {title: 'Test Title', description: 'Test Description'}
+      end
+
+      describe 'empty values passed' do
+        before do
+          post 'v1/events', { event: {title: '', description: ''} }
+        end
+
+        it 'should not increase events count' do
+          expect(Models::Event.count).to eq 0
+        end
+
+        it 'should return status 400' do
+          expect_status 400
+        end
+
+        it 'should return field validation error messages' do
+          expect_json('error_message', "Title can't be blank")
+          expect_json('error_message', "Description can't be blank")
+        end
+      end
+
+      it 'increment existing events count by one' do
+        expect(Models::Event.count).to eq 0
+        post 'v1/events', { event: @event_attrs }
+        expect(Models::Event.count).to eq 1
+      end
+
+      it 'create new event with title and description' do
+        post 'v1/events', { event: @event_attrs }
+        event = Models::Event.first
+        expect(event.title).to eq 'Test Title'
+        expect(event.description).to eq 'Test Description'
+      end
+    end
+
+    describe 'params missing' do
+      it 'without required params' do
+        post 'v1/events', { }
+        expect(Models::Event.count).to eq 0
+        expect_json(error_message: 'event is missing, event[title] is missing, event[description] is missing')
+      end
+    end
+  end
 end
