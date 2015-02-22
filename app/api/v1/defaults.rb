@@ -15,6 +15,15 @@ module API
           error_response(message: "Document not found", status: 404)
         end
 
+        rescue_from Mongoid::Errors::Validations do |error|
+          extracted = error.message.match /(?<message>The following errors were found:.*\n)/
+          error_response(message: extracted[:message], status: 400)
+        end
+
+        rescue_from Grape::Exceptions::ValidationErrors do |error|
+          error_response(message: error.message, status: 400)
+        end
+
         rescue_from :all do |error|
           if API.env.development? || API.env.test?
             raise error
