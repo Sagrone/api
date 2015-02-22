@@ -1,7 +1,7 @@
 development:
   sessions:
     default:
-      database: <%= ENV.fetch('MONGO_DATABASE') %>
+      database: <%= ENV.fetch('MONGO_DATABASE') %>_development
       hosts:
         - <%= ENV.fetch('MONGO_HOST') %>:<%= ENV.fetch('MONGO_PORT') %>
       options:
