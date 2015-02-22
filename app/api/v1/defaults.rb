@@ -8,6 +8,10 @@ module API
         content_type :json, 'application/json; charset=UTF-8'
         format :json
 
+        rescue_from Mongoid::Errors::DocumentNotFound do |_|
+          error_response(message: "Document not found", status: 404)
+        end
+
         rescue_from :all do |error|
           if API.env.development?
             raise error

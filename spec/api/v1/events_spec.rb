@@ -40,4 +40,40 @@ RSpec.describe API::V1::Events do
       end
     end
   end
+
+  describe 'GET /v1/events/:id' do
+    describe 'when event present' do
+      before do
+        @event = Models::Event.create!(title: 'Test Title', description: 'Test Description')
+
+        get "v1/events/#{@event.id}"
+      end
+
+      it 'should have status 200' do
+        expect_status 200
+      end
+
+      it 'should return event with correct values' do
+        expect_json('event', {title: 'Test Title', description: 'Test Description'})
+      end
+
+      it 'should return event with correct types' do
+        expect_json_types('event', title: :string, description: :string)
+      end
+    end
+
+    describe 'when event present' do
+      before do
+        get "v1/events/123fake"
+      end
+
+      it 'should have status 404' do
+        expect_status 404
+      end
+
+      it 'should say document not found' do
+        expect_json(error: 'Document not found')
+      end
+    end
+  end
 end

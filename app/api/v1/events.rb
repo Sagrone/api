@@ -14,6 +14,12 @@ module API
           events = Models::Event.all
           present :events, events, with: API::Entities::Event
         end
+
+        desc 'Return a specific event'
+        get ':id' do
+          event = Models::Event.find(params[:id])
+          present :event, event, with: API::Entities::Event
+        end
       end
     end
   end
