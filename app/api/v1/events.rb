@@ -6,10 +6,10 @@ module API
     class Events < Grape::API
       include API::V1::Defaults
 
-      desc 'Return all events', {
-        params: API::Entities::Event.documentation
-      }
       namespace :events do
+        desc 'Return all events', {
+          params: API::Entities::Event.documentation
+        }
         get nil do
           events = Models::Event.all
           present :events, events, with: API::Entities::Event
