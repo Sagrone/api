@@ -18,4 +18,4 @@ PROJECT_FOLDERS.each { |folder| $LOAD_PATH.unshift("#{root_path}/#{folder}") }
 
 # Application setup
 require 'initializers/bson_ext'
-require 'api'
+require 'api/base'

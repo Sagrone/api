@@ -1,13 +1,7 @@
-require 'grape'
+require 'active_support/string_inquirer'
 
-class API < Grape::API
-  content_type :json, 'application/json; charset=UTF-8'
-  format :json
-  formatter :json, Grape::Formatter::Rabl
-  rescue_from :all
-
-  desc 'Check API status'
-  get '/status' do
-    {status: 'OK'}
+module API
+  def self.env
+    @_env ||= ActiveSupport::StringInquirer.new(ENV["RACK_ENV"] || "development")
   end
 end
