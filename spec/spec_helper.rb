@@ -30,5 +30,6 @@ RSpec.configure do |config|
     config.default_formatter = 'doc'
   end
 
+  config.full_backtrace = false
   config.order = :random
 end
