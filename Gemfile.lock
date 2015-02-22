@@ -166,6 +166,7 @@ DEPENDENCIES
   mongoid
   mongoid-rspec
   oj
+  pry
   rerun
   rspec
   unicorn
