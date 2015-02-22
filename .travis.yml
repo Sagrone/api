@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.1.2
+services:
+  - mongodb
 script:
   - "bundle exec rspec --color --format documentation"
 notifications:
