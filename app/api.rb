@@ -1,3 +1,5 @@
+require 'grape'
+
 class API < Grape::API
   content_type :json, 'application/json; charset=UTF-8'
   format :json
