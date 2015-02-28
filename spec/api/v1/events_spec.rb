@@ -14,12 +14,12 @@ RSpec.describe API::V1::Events do
 
     describe 'with three events present' do\
       before do
-        3.times do |num|
-          Models::Event.create!({
-            title: "Title #{num}",
-            description: "Description #{num}"
-          })
-        end
+        @events = 3.times.map do |num|
+                    Models::Event.create!({
+                      title: "Title #{num}",
+                      description: "Description #{num}"
+                    })
+                  end
         get 'v1/events'
       end
 
@@ -28,15 +28,15 @@ RSpec.describe API::V1::Events do
       end
 
       it 'should have fields with correct types' do
-        expect_json_types('events.*', {title: :string, description: :string})
+        expect_json_types('events.*', {id: :string, title: :string, description: :string})
       end
 
       it 'first event returned has correct values' do
-        expect_json('events.0', {title: 'Title 0', description: 'Description 0'})
+        expect_json('events.0', {id: @events[0].id.to_s, title: 'Title 0', description: 'Description 0'})
       end
 
       it 'last event returned has correct values' do
-        expect_json('events.2', {title: 'Title 2', description: 'Description 2'})
+        expect_json('events.2', {id: @events[2].id.to_s, title: 'Title 2', description: 'Description 2'})
       end
     end
   end
