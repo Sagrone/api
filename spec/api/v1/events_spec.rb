@@ -54,11 +54,11 @@ RSpec.describe API::V1::Events do
       end
 
       it 'should return event with correct values' do
-        expect_json('event', {title: 'Test Title', description: 'Test Description'})
+        expect_json('event', {id: @event.id.to_s, title: 'Test Title', description: 'Test Description'})
       end
 
       it 'should return event with correct types' do
-        expect_json_types('event', title: :string, description: :string)
+        expect_json_types('event', id: :string, title: :string, description: :string)
       end
     end
 
@@ -111,6 +111,7 @@ RSpec.describe API::V1::Events do
       it 'create new event with title and description' do
         post 'v1/events', @event_attrs
         event = Models::Event.first
+        expect(event.id).to be
         expect(event.title).to eq 'Test Title'
         expect(event.description).to eq 'Test Description'
       end
