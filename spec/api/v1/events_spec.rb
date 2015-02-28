@@ -85,7 +85,7 @@ RSpec.describe API::V1::Events do
 
       describe 'empty values passed' do
         before do
-          post 'v1/events', { event: {title: '', description: ''} }
+          post 'v1/events', { title: '', description: ''}
         end
 
         it 'should not increase events count' do
@@ -104,12 +104,12 @@ RSpec.describe API::V1::Events do
 
       it 'increment existing events count by one' do
         expect(Models::Event.count).to eq 0
-        post 'v1/events', { event: @event_attrs }
+        post 'v1/events', @event_attrs
         expect(Models::Event.count).to eq 1
       end
 
       it 'create new event with title and description' do
-        post 'v1/events', { event: @event_attrs }
+        post 'v1/events', @event_attrs
         event = Models::Event.first
         expect(event.title).to eq 'Test Title'
         expect(event.description).to eq 'Test Description'
@@ -120,7 +120,7 @@ RSpec.describe API::V1::Events do
       it 'without required params' do
         post 'v1/events', { }
         expect(Models::Event.count).to eq 0
-        expect_json(error_message: 'event is missing, event[title] is missing, event[description] is missing')
+        expect_json(error_message: 'title is missing, description is missing')
       end
     end
   end

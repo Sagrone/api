@@ -23,13 +23,11 @@ module API
 
         desc 'Create a new event'
         params do
-          requires :event, type: Hash do
-            requires :title, type: String
-            requires :description, type: String
-          end
+          requires :title, type: String
+          requires :description, type: String
         end
         post nil do
-          event = Models::Event.create!(declared(params)[:event])
+          event = Models::Event.create!(declared(params))
           present :event, event, with: API::Entities::Event
         end
       end
