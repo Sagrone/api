@@ -16,7 +16,7 @@ module API
         end
 
         rescue_from Mongoid::Errors::Validations do |error|
-          extracted = error.message.match /(?<message>The following errors were found:.*\n)/
+          extracted = error.message.match(/(?<message>The following errors were found:.*\n)/)
           error_response(message: extracted[:message], status: 400)
         end
 
