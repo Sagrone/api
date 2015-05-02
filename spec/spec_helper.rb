@@ -4,7 +4,7 @@ require_relative '../config/boot'
 
 require 'rspec'
 
-Dir["./spec/support/**/*.rb"].sort.each { |file| require file }
+Dir['./spec/support/**/*.rb'].sort.each { |file| require file }
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
