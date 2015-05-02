@@ -1,9 +1,7 @@
 require "rspec/core/rake_task"
 
-RSpec::Core::RakeTask.new(:spec)
+Dir.glob('./lib/tasks/**/*.rake').each { |task| load task }
 
-task :console do
-  sh 'irb -I . -r config/boot'
-end
+RSpec::Core::RakeTask.new(:spec)
 
 task :default => :spec
