@@ -20,23 +20,28 @@ RSpec.describe API::V1::Events do
                       description: "Description #{num}"
                     })
                   end
-        get 'v1/events'
       end
 
-      it 'should return three events as json' do
-        expect_json_sizes(events: 3)
-      end
+      describe 'get all events' do
+        before do
+          get 'v1/events'
+        end
 
-      it 'should have fields with correct types' do
-        expect_json_types('events.*', {id: :string, title: :string, description: :string})
-      end
+        it 'should return three events as json' do
+          expect_json_sizes(events: 3)
+        end
 
-      it 'first event returned has correct values' do
-        expect_json('events.0', {id: @events[0].id.to_s, title: 'Title 0', description: 'Description 0'})
-      end
+        it 'should have fields with correct types' do
+          expect_json_types('events.*', {id: :string, title: :string, description: :string})
+        end
 
-      it 'last event returned has correct values' do
-        expect_json('events.2', {id: @events[2].id.to_s, title: 'Title 2', description: 'Description 2'})
+        it 'first event returned has correct values' do
+          expect_json('events.0', {id: @events[0].id.to_s, title: 'Title 0', description: 'Description 0'})
+        end
+
+        it 'last event returned has correct values' do
+          expect_json('events.2', {id: @events[2].id.to_s, title: 'Title 2', description: 'Description 2'})
+        end
       end
     end
   end
