@@ -1,19 +1,12 @@
 ENV['RACK_ENV'] = 'test'
 
-Bundler.require
-
-require 'airborne'
-require 'rspec'
-
 require_relative '../config/boot'
 
-Airborne.configure do |config|
-  config.rack_app = API::Base
-end
+require 'rspec'
+
+Dir["./spec/support/**/*.rb"].sort.each { |file| require file }
 
 RSpec.configure do |config|
-  config.include Mongoid::Matchers, type: :model
-
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -32,8 +25,4 @@ RSpec.configure do |config|
 
   config.full_backtrace = false
   config.order = :random
-
-  config.before :each do
-    Mongoid.purge!
-  end
 end
