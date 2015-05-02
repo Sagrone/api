@@ -1,5 +1,5 @@
-require 'models/event'
-require 'api/entities/event'
+require 'event'
+require 'entities/event'
 
 module API
   module V1

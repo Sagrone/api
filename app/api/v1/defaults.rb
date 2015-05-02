@@ -1,4 +1,4 @@
-require 'api/formatters/json_error'
+require 'formatters/json_error'
 
 module API
   module V1
