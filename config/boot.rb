@@ -13,7 +13,7 @@ Mongoid.load!(database_config, ENV.fetch('RACK_ENV'))
 
 # Setup load paths
 root_path = File.expand_path('../../', __FILE__)
-PROJECT_FOLDERS = %w( app config )
+PROJECT_FOLDERS = %w( app app/models config )
 PROJECT_FOLDERS.each { |folder| $LOAD_PATH.unshift("#{root_path}/#{folder}") }
 
 # Application setup

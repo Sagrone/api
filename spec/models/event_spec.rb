@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'models/event'
+require 'event'
 
-RSpec.describe Models::Event, type: :model do
+RSpec.describe Event, type: :model do
   it 'should be defined' do
     expect(described_class).to_not be_nil
   end

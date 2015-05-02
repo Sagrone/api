@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'models/event'
+require 'event'
 
 RSpec.describe API::V1::Events do
   it 'should be defined' do
@@ -15,7 +15,7 @@ RSpec.describe API::V1::Events do
     describe 'with three events present' do\
       before do
         @events = 3.times.map do |num|
-                    Models::Event.create!({
+                    Event.create!({
                       title: "Title #{num}",
                       description: "Description #{num}"
                     })
@@ -60,7 +60,7 @@ RSpec.describe API::V1::Events do
   describe 'GET /v1/events/:id' do
     describe 'when event present' do
       before do
-        @event = Models::Event.create!(title: 'Test Title', description: 'Test Description')
+        @event = Event.create!(title: 'Test Title', description: 'Test Description')
 
         get "v1/events/#{@event.id}"
       end
@@ -105,7 +105,7 @@ RSpec.describe API::V1::Events do
         end
 
         it 'should not increase events count' do
-          expect(Models::Event.count).to eq 0
+          expect(Event.count).to eq 0
         end
 
         it 'should return status 400' do
@@ -119,14 +119,14 @@ RSpec.describe API::V1::Events do
       end
 
       it 'increment existing events count by one' do
-        expect(Models::Event.count).to eq 0
+        expect(Event.count).to eq 0
         post 'v1/events', @event_attrs
-        expect(Models::Event.count).to eq 1
+        expect(Event.count).to eq 1
       end
 
       it 'create new event with title and description' do
         post 'v1/events', @event_attrs
-        event = Models::Event.first
+        event = Event.first
         expect(event.id).to be
         expect(event.title).to eq 'Test Title'
         expect(event.description).to eq 'Test Description'
@@ -136,7 +136,7 @@ RSpec.describe API::V1::Events do
     describe 'params missing' do
       it 'without required params' do
         post 'v1/events', { }
-        expect(Models::Event.count).to eq 0
+        expect(Event.count).to eq 0
         expect_json(error_message: 'title is missing, description is missing')
       end
     end

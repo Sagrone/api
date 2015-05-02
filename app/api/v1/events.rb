@@ -15,13 +15,13 @@ module API
         end
         get nil do
           filter_params = declared(params, include_missing: false)
-          events = Models::Event.where(filter_params)
+          events = Event.where(filter_params)
           present :events, events, with: API::Entities::Event
         end
 
         desc 'Return a specific event'
         get ':id' do
-          event = Models::Event.find(params[:id])
+          event = Event.find(params[:id])
           present :event, event, with: API::Entities::Event
         end
 
@@ -31,7 +31,7 @@ module API
           requires :description, type: String
         end
         post nil do
-          event = Models::Event.create!(declared(params))
+          event = Event.create!(declared(params))
           present :event, event, with: API::Entities::Event
         end
       end
