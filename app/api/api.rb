@@ -11,4 +11,9 @@ module API
   def self.env
     @_env ||= ActiveSupport::StringInquirer.new(ENV.fetch("RACK_ENV"))
   end
+
+  # Project root folder
+  def self.root
+    @_root ||= File.expand_path('../../../', __FILE__)
+  end
 end
