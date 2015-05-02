@@ -43,6 +43,17 @@ RSpec.describe API::V1::Events do
           expect_json('events.2', {id: @events[2].id.to_s, title: 'Title 2', description: 'Description 2'})
         end
       end
+
+      describe 'filter by title' do
+        before do
+          get 'v1/events?title=Title+1'
+        end
+
+        it 'should return one event with matching title' do
+          expect_json_sizes(events: 1)
+          expect_json('events.0', {id: @events[1].id.to_s, title: 'Title 1', description: 'Description 1'})
+        end
+      end
     end
   end
 

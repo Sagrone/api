@@ -10,8 +10,12 @@ module API
         desc 'Return all events', {
           params: API::Entities::Event.documentation
         }
+        params do
+          optional :title, type: String
+        end
         get nil do
-          events = Models::Event.all
+          filter_params = declared(params, include_missing: false)
+          events = Models::Event.where(filter_params)
           present :events, events, with: API::Entities::Event
         end
 
