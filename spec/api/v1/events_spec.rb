@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'event'
 
 RSpec.describe API::V1::Events do
   it 'should be defined' do

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'event'
 
 RSpec.describe Event, type: :model do
   it 'should be defined' do
