@@ -5,7 +5,7 @@ RSpec.describe Event::Organizer, type: :model do
     it { is_expected.to be_mongoid_document }
   end
 
-  describe 'has fields' do
+  describe 'fields' do
     it { is_expected.to have_field(:email).of_type(String) }
     it { is_expected.to have_field(:name).of_type(String) }
     it { is_expected.to have_field(:phone).of_type(String) }

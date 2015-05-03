@@ -5,7 +5,7 @@ RSpec.describe Event::Date, type: :model do
     it { is_expected.to be_mongoid_document }
   end
 
-  describe 'has fields' do
+  describe 'fields' do
     it { is_expected.to have_field(:start_at).of_type(Time) }
     it { is_expected.to have_field(:end_at).of_type(Time) }
   end

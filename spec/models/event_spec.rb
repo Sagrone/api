@@ -6,7 +6,7 @@ RSpec.describe Event, type: :model do
     it { is_expected.to be_timestamped_document }
   end
 
-  describe 'has fields' do
+  describe 'fields' do
     it { is_expected.to have_field(:title).of_type(String) }
     it { is_expected.to validate_presence_of(:title) }
 
