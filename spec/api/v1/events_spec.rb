@@ -16,7 +16,8 @@ RSpec.describe API::V1::Events do
         @events = 3.times.map do |num|
                     Event.create!({
                       title: "Title #{num}",
-                      description: "Description #{num}"
+                      description: "Description #{num}",
+                      full_address: 'Full address #{num}'
                     })
                   end
       end
@@ -59,7 +60,7 @@ RSpec.describe API::V1::Events do
   describe 'GET /v1/events/:id' do
     describe 'when event present' do
       before do
-        @event = Event.create!(title: 'Test Title', description: 'Test Description')
+        @event = Event.create!(title: 'Test Title', description: 'Test Description', full_address: 'Test address')
 
         get "v1/events/#{@event.id}"
       end
@@ -95,12 +96,12 @@ RSpec.describe API::V1::Events do
   describe 'POST /v1/events' do
     describe 'when params present' do
       before do
-        @event_attrs = {title: 'Test Title', description: 'Test Description'}
+        @event_attrs = {title: 'Test Title', description: 'Test Description', full_address: 'Test Address'}
       end
 
       describe 'empty values passed' do
         before do
-          post 'v1/events', { title: '', description: ''}
+          post 'v1/events', { title: '', description: '', full_address: ''}
         end
 
         it 'should not increase events count' do
@@ -114,6 +115,7 @@ RSpec.describe API::V1::Events do
         it 'should return field validation error messages' do
           expect_json('error_message', "Title can't be blank")
           expect_json('error_message', "Description can't be blank")
+          expect_json('error_message', "Full address can't be blank")
         end
       end
 
@@ -129,6 +131,7 @@ RSpec.describe API::V1::Events do
         expect(event.id).to be
         expect(event.title).to eq 'Test Title'
         expect(event.description).to eq 'Test Description'
+        expect(event.full_address).to eq 'Test Address'
       end
     end
 
@@ -136,7 +139,7 @@ RSpec.describe API::V1::Events do
       it 'without required params' do
         post 'v1/events', { }
         expect(Event.count).to eq 0
-        expect_json(error_message: 'title is missing, description is missing')
+        expect_json(error_message: 'title is missing, description is missing, full_address is missing')
       end
     end
   end

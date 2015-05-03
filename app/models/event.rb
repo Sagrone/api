@@ -12,6 +12,7 @@ class Event
 
   field :coordinates, type: Array
   field :description, type: String
+  field :full_address, type: String
   field :tags, type: Array, default: []
   field :title, type: String
   field :summary, type: String
@@ -25,6 +26,7 @@ class Event
 
   index({ coordinates: '2d' }, { min: -180, max: 180 })
 
-  validates :title, presence: true
   validates :description, presence: true
+  validates :full_address, presence: true
+  validates :title, presence: true
 end

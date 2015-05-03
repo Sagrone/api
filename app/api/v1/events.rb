@@ -29,6 +29,7 @@ module API
         params do
           requires :title, type: String
           requires :description, type: String
+          requires :full_address, type: String
         end
         post nil do
           event = Event.create!(declared(params))
