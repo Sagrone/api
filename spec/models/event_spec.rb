@@ -7,16 +7,13 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'fields' do
-    it { is_expected.to have_field(:title).of_type(String) }
-    it { is_expected.to validate_presence_of(:title) }
-
-    it { is_expected.to have_field(:summary).of_type(String) }
-
+    it { is_expected.to have_field(:coordinates).of_type(Array) }
     it { is_expected.to have_field(:description).of_type(String) }
     it { is_expected.to validate_presence_of(:description) }
-
-    it { is_expected.to have_field(:coordinates).of_type(Array) }
     it { is_expected.to have_field(:tags).of_type(Array).with_default_value_of([]) }
+    it { is_expected.to have_field(:title).of_type(String) }
+    it { is_expected.to validate_presence_of(:title) }
+    it { is_expected.to have_field(:summary).of_type(String) }
   end
 
   describe 'associations' do
