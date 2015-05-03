@@ -1,5 +1,6 @@
 require 'event/address'
 require 'event/date'
+require 'event/image'
 require 'event/organizer'
 require 'event/origin'
 
@@ -19,6 +20,8 @@ class Event
   embeds_one :date, class_name: 'Event::Date'
   embeds_one :organizer, class_name: 'Event::Organizer'
   embeds_one :origin, class_name: 'Event::Origin'
+
+  embeds_many :images, class_name: 'Event::Image'
 
   index({ coordinates: '2d' }, { min: -180, max: 180 })
 
