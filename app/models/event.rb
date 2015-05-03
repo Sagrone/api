@@ -1,3 +1,4 @@
+require 'event/address'
 require 'event/date'
 require 'event/organizer'
 
@@ -11,6 +12,7 @@ class Event
   field :description, type: String
   field :coordinates, type: Array
 
+  embeds_one :address, class_name: 'Event::Address'
   embeds_one :date, class_name: 'Event::Date'
   embeds_one :organizer, class_name: 'Event::Organizer'
 
