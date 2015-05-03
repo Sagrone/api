@@ -17,4 +17,8 @@ RSpec.describe Event, type: :model do
     it { is_expected.to have_field(:description).of_type(String) }
     it { is_expected.to validate_presence_of(:description) }
   end
+
+  describe 'associations' do
+    it { is_expected.to embed_one(:organizer) }
+  end
 end
