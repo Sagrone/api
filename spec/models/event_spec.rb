@@ -14,6 +14,7 @@ RSpec.describe Event, type: :model do
     it { is_expected.to validate_presence_of(:description) }
 
     it { is_expected.to have_field(:coordinates).of_type(Array) }
+    it { is_expected.to have_field(:tags).of_type(Array).with_default_value_of([]) }
   end
 
   describe 'associations' do

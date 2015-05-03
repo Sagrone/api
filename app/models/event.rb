@@ -11,6 +11,7 @@ class Event
   field :title, type: String
   field :description, type: String
   field :coordinates, type: Array
+  field :tags, type: Array, default: []
 
   embeds_one :address, class_name: 'Event::Address'
   embeds_one :date, class_name: 'Event::Date'
