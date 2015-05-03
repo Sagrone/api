@@ -17,6 +17,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'associations' do
+    it { is_expected.to embed_one(:date) }
     it { is_expected.to embed_one(:organizer) }
   end
 

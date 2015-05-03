@@ -1,3 +1,4 @@
+require 'event/date'
 require 'event/organizer'
 
 class Event
@@ -10,6 +11,7 @@ class Event
   field :description, type: String
   field :coordinates, type: Array
 
+  embeds_one :date, class_name: 'Event::Date'
   embeds_one :organizer, class_name: 'Event::Organizer'
 
   index({ coordinates: '2d' }, { min: -180, max: 180 })
