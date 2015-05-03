@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Event, type: :model do
-  it 'should be defined' do
-    expect(described_class).to_not be_nil
-  end
-
   describe 'is a document' do
     it { is_expected.to be_mongoid_document }
     it { is_expected.to be_timestamped_document }
