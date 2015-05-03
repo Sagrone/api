@@ -1,6 +1,7 @@
 require 'event/address'
 require 'event/date'
 require 'event/organizer'
+require 'event/origin'
 
 class Event
   include Mongoid::Document
@@ -16,6 +17,7 @@ class Event
   embeds_one :address, class_name: 'Event::Address'
   embeds_one :date, class_name: 'Event::Date'
   embeds_one :organizer, class_name: 'Event::Organizer'
+  embeds_one :origin, class_name: 'Event::Origin'
 
   index({ coordinates: '2d' }, { min: -180, max: 180 })
 

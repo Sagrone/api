@@ -21,6 +21,7 @@ RSpec.describe Event, type: :model do
     it { is_expected.to embed_one(:address) }
     it { is_expected.to embed_one(:date) }
     it { is_expected.to embed_one(:organizer) }
+    it { is_expected.to embed_one(:origin) }
   end
 
   describe 'indexes' do
