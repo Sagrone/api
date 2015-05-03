@@ -10,6 +10,7 @@ class Event
   store_in collection: 'events'
 
   field :title, type: String
+  field :summary, type: String
   field :description, type: String
   field :coordinates, type: Array
   field :tags, type: Array, default: []
