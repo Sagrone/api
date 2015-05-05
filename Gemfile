@@ -13,6 +13,7 @@ gem 'oj'
 
 group :development do
   gem 'rerun'
+  gem 'faker', require: false
   gem 'guard-rspec', require: false
 end
 
