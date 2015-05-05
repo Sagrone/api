@@ -12,8 +12,9 @@ gem 'mongoid'
 gem 'oj'
 
 group :development do
-  gem 'rerun'
+  gem 'faker', require: false
   gem 'guard-rspec', require: false
+  gem 'rerun', require: false
 end
 
 group :test do
