@@ -19,6 +19,7 @@ end
 
 group :test do
   gem 'airborne'
+  gem 'factory_girl'
   gem 'pry'
   gem 'rspec'
   gem 'mongoid-rspec'
