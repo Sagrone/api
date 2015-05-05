@@ -19,6 +19,8 @@ end
 
 group :test do
   gem 'airborne'
+  gem 'database_cleaner'
+  gem 'factory_girl'
   gem 'pry'
   gem 'rspec'
   gem 'mongoid-rspec'

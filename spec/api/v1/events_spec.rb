@@ -14,7 +14,7 @@ RSpec.describe API::V1::Events do
     describe 'with three events present' do\
       before do
         @events = 3.times.map do |num|
-                    Event.create!({
+                    create(:event, {
                       title: "Title #{num}",
                       description: "Description #{num}",
                       full_address: 'Full address #{num}'
@@ -60,7 +60,7 @@ RSpec.describe API::V1::Events do
   describe 'GET /v1/events/:id' do
     describe 'when event present' do
       before do
-        @event = Event.create!(title: 'Test Title', description: 'Test Description', full_address: 'Test address')
+        @event = create(:event, title: 'Test Title', description: 'Test Description', full_address: 'Test address')
 
         get "v1/events/#{@event.id}"
       end
