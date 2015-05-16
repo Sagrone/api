@@ -11,15 +11,6 @@ module Faker
       Faker::Lorem.paragraph(10)
     end
 
-    def self.organizer
-      {
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        phone: Faker::PhoneNumber.phone_number,
-        website: Faker::Internet.url
-      }
-    end
-
     def self.latitude
       Faker::Address.latitude.to_f
     end

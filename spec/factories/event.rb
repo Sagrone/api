@@ -6,7 +6,7 @@ FactoryGirl.define do
   end
 
   trait :full_details do
-    organizer { Faker::Sagra.organizer }
+    organizer { FactoryGirl.build(:organizer) }
     coordinates { Faker::Sagra.coordinates }
     date { Faker::Sagra.date }
     address { Faker::Sagra.address }
