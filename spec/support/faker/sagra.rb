@@ -23,13 +23,6 @@ module Faker
       [latitude, longitude]
     end
 
-    def self.date
-      {
-        start_at: Faker::Date.between(2.days.ago, 5.days.from_now),
-        end_at: Faker::Date.between(5.days.from_now, 10.days.from_now),
-      }
-    end
-
     def self.full_address
       "#{street_name}, #{street_number}, #{city}, #{region}"
     end

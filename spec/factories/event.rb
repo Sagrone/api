@@ -8,7 +8,7 @@ FactoryGirl.define do
   trait :full_details do
     organizer { FactoryGirl.build(:organizer) }
     coordinates { Faker::Sagra.coordinates }
-    date { Faker::Sagra.date }
+    date { FactoryGirl.build(:date) }
     address { FactoryGirl.build(:address) }
     tags { Faker::Sagra.tags }
     origin { FactoryGirl.build(:origin) }
