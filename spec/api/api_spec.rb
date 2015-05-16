@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe API do
-  describe 'API::Base' do
-    it 'should be defined' do
-      expect(described_class).to_not be_nil
-    end
+  describe API::Base do
   end
 
   describe 'self.env' do
