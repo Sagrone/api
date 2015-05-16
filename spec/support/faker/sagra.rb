@@ -55,19 +55,6 @@ module Faker
       tags_examples.shuffle.take(3)
     end
 
-    def self.images(count = 5)
-      count.times.inject([]) do |result|
-        image = {
-          title: Faker::Name.title,
-          url: 'http://placehold.it/270x160',
-          width: '270',
-          height: '160'
-        }
-
-        result.push(image)
-      end
-    end
-
     private
 
     def self.sagre_examples

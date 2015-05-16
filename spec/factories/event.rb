@@ -12,6 +12,6 @@ FactoryGirl.define do
     address { FactoryGirl.build(:address) }
     tags { Faker::Sagra.tags }
     origin { FactoryGirl.build(:origin) }
-    images { Faker::Sagra.images }
+    images { FactoryGirl.build_list(:image, 5) }
   end
 end
