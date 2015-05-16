@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :event_address, class: 'Event::Address', aliases: [:address] do
+    event
     latitude { Faker::Sagra.latitude }
     longitude { Faker::Sagra.longitude }
     street { Faker::Sagra.street_name }
