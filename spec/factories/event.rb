@@ -6,12 +6,12 @@ FactoryGirl.define do
   end
 
   trait :full_details do
-    organizer { Faker::Sagra.organizer }
+    organizer { FactoryGirl.build(:organizer) }
     coordinates { Faker::Sagra.coordinates }
-    date { Faker::Sagra.date }
-    address { Faker::Sagra.address }
+    date { FactoryGirl.build(:date) }
+    address { FactoryGirl.build(:address) }
     tags { Faker::Sagra.tags }
-    origin { Faker::Sagra.origin }
-    images { Faker::Sagra.images }
+    origin { FactoryGirl.build(:origin) }
+    images { FactoryGirl.build_list(:image, 5) }
   end
 end

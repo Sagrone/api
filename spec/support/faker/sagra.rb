@@ -11,15 +11,6 @@ module Faker
       Faker::Lorem.paragraph(10)
     end
 
-    def self.organizer
-      {
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        phone: Faker::PhoneNumber.phone_number,
-        website: Faker::Internet.url
-      }
-    end
-
     def self.latitude
       Faker::Address.latitude.to_f
     end
@@ -30,13 +21,6 @@ module Faker
 
     def self.coordinates
       [latitude, longitude]
-    end
-
-    def self.date
-      {
-        start_at: Faker::Date.between(2.days.ago, 5.days.from_now),
-        end_at: Faker::Date.between(5.days.from_now, 10.days.from_now),
-      }
     end
 
     def self.full_address
@@ -67,47 +51,8 @@ module Faker
       'Italy'
     end
 
-    def self.address
-      lat = latitude
-      lon = longitude
-
-      {
-        latitude: lat,
-        longitude: lon,
-        street: street_name,
-        street_number: street_number,
-        city: city,
-        zip: zip,
-        region: region,
-        country: country,
-        google_map_url: "http://maps.google.com/maps?q=#{lat},#{lon}"
-      }
-    end
-
     def self.tags
       tags_examples.shuffle.take(3)
-    end
-
-    def self.origin
-      {
-        name: 'example.com',
-        code_name: 'example.com',
-        website: Faker::Internet.url('example.com', '/'),
-        page_url: Faker::Internet.url('example.com')
-      }
-    end
-
-    def self.images(count = 5)
-      count.times.inject([]) do |result|
-        image = {
-          title: Faker::Name.title,
-          url: 'http://placehold.it/270x160',
-          width: '270',
-          height: '160'
-        }
-
-        result.push(image)
-      end
     end
 
     private
