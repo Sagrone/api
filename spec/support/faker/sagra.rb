@@ -58,23 +58,6 @@ module Faker
       'Italy'
     end
 
-    def self.address
-      lat = latitude
-      lon = longitude
-
-      {
-        latitude: lat,
-        longitude: lon,
-        street: street_name,
-        street_number: street_number,
-        city: city,
-        zip: zip,
-        region: region,
-        country: country,
-        google_map_url: "http://maps.google.com/maps?q=#{lat},#{lon}"
-      }
-    end
-
     def self.tags
       tags_examples.shuffle.take(3)
     end

@@ -9,7 +9,7 @@ FactoryGirl.define do
     organizer { FactoryGirl.build(:organizer) }
     coordinates { Faker::Sagra.coordinates }
     date { Faker::Sagra.date }
-    address { Faker::Sagra.address }
+    address { FactoryGirl.build(:address) }
     tags { Faker::Sagra.tags }
     origin { Faker::Sagra.origin }
     images { Faker::Sagra.images }
