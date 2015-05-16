@@ -62,15 +62,6 @@ module Faker
       tags_examples.shuffle.take(3)
     end
 
-    def self.origin
-      {
-        name: 'example.com',
-        code_name: 'example.com',
-        website: Faker::Internet.url('example.com', '/'),
-        page_url: Faker::Internet.url('example.com')
-      }
-    end
-
     def self.images(count = 5)
       count.times.inject([]) do |result|
         image = {

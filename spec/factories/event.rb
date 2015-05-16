@@ -11,7 +11,7 @@ FactoryGirl.define do
     date { Faker::Sagra.date }
     address { FactoryGirl.build(:address) }
     tags { Faker::Sagra.tags }
-    origin { Faker::Sagra.origin }
+    origin { FactoryGirl.build(:origin) }
     images { Faker::Sagra.images }
   end
 end
