@@ -89,6 +89,55 @@ RSpec.describe API::V1::Events do
     end
   end
 
+  describe 'PUT /v1/event/:id' do
+    describe 'when event is missing' do
+      before do
+        put 'v1/events/123', {title: "Test Title"}
+      end
+
+      it 'should return an error' do
+        expect_status 404
+      end
+    end
+
+    describe 'when event exists and params are wrong' do
+      before do
+        @event = create(:event,
+                        title: 'Test Title',
+                        description: 'Test Description',
+                        full_address: 'Full Address')
+        put "v1/events/#{@event.id}", title: 123
+      end
+
+      it 'return an error about the title' do
+        expect_status 404
+        expect_json('error_message', "Couldn't find the event")
+      end
+    end
+
+    describe 'when event exists and params are present' do
+      before do
+        @event = create(
+          :event,
+          title: 'Test Title',
+          description: 'Test Description',
+          full_address: 'Full Address'
+        )
+        put "v1/events/#{@event.id}",
+            title: 'Updated Title',
+            description: 'Updated Description',
+            full_address: 'Updated Full Address'
+      end
+
+      it 'should have updated values' do
+        expect_status 200
+        expect_json('event.title', 'Updated Title')
+        expect_json('event.description', 'Updated Description')
+        expect_json('event.full_address', 'Updated Full Address')
+      end
+    end
+  end
+
   describe 'POST /v1/events' do
     describe 'when params present' do
       before do

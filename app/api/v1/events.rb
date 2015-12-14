@@ -35,6 +35,21 @@ module API
           event = Event.create!(declared(params))
           present :event, event, with: API::Entities::Event
         end
+
+        desc 'Update an event'
+        params do
+          optional :title, type: String
+          optional :description, type: String
+          optional :full_address, type: String
+        end
+        put ':id' do
+          if Event.find(params[:id]).update(declared(params))
+            event = Event.find(params[:id])
+            present :event, event, with: API::Entities::Event
+          else
+            error!("Couldn't find the event", 404)
+          end
+        end
       end
     end
   end
